@@ -11,11 +11,17 @@ root_prompt_color='196'
 # Inspired by this article
 # https://zork.net/~st/jottings/How_to_limit_the_length_of_your_bash_prompt.html
 function trimmed_pwd {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        V_ENV="($(basename "$VIRTUAL_ENV")) "
+    else
+        V_ENV=""
+    fi
+    PROMPT="${V_ENV}${1}"
     TRIM_CHARS=".."
-    TRIMMED_PWD=${PWD:${#1}-$(tput cols)-1}
+    TRIMMED_PWD=${PWD:${#PROMPT}-$(tput cols)-1}
     if [ ! -z $TRIMMED_PWD ]; then
         echo -n "$TRIM_CHARS"
-        TRIMMED_PWD=${PWD:${#1}+${#TRIM_CHARS}-$(tput cols)}
+        TRIMMED_PWD=${PWD:${#PROMPT}+${#TRIM_CHARS}-$(tput cols)}
     fi
     TRIMMED_PWD=${TRIMMED_PWD:-$PWD}
     echo "$TRIMMED_PWD"
