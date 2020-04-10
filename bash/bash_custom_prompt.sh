@@ -29,11 +29,11 @@ function trimmed_pwd {
 
 case "$TERM" in
 xterm*|rxvt*|vte*|linux*)
-    PS1='\[\e[38;5;'$prompt_color'm\]\t \u@\h $(trimmed_pwd "\t \u@\h ")\n'
+    PS1='\[\e[38;5;'$prompt_color'm\]\D{%F %T} \u@\h $(trimmed_pwd "\D{%F %T} \u@\h ")\n'
     [[ $UID == 0 ]] && { prompt_color=$root_prompt_color;cursor_color=$root_cursor_color; }
     PS1="$PS1"'\[\e[m\e]12;'$cursor_color'\a\e[38;5;'$prompt_color'm\]\$ \[\e[m\]'
     ;;
 *)
-    PS1='\t \u@\h $(trimmed_pwd "\t \u@\h ")\n\$ '
+    PS1='\D{%F %T} \u@\h $(trimmed_pwd "\D{%F %T} \u@\h ")\n\$ '
     ;;
 esac
