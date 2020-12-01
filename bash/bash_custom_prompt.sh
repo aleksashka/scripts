@@ -1,5 +1,7 @@
 # Colorize console prompt
+# Inspired by https://habr.com/post/269967/
 
+# Use colors from colors_cursor_prompt.png
 # User colors are Blueish
 cursor_color='#0087FF'
 prompt_color='33'
