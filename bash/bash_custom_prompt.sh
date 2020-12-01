@@ -19,7 +19,7 @@ function trimmed_pwd {
     PROMPT="${V_ENV}${1}"
     TRIM_CHARS=".."
     TRIMMED_PWD=${PWD:${#PROMPT}-$(tput cols)-1}
-    if [ ! -z $TRIMMED_PWD ]; then
+    if [ ! -z "$TRIMMED_PWD" ]; then
         echo -n "$TRIM_CHARS"
         TRIMMED_PWD=${PWD:${#PROMPT}+${#TRIM_CHARS}-$(tput cols)}
     fi
