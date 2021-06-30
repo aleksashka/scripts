@@ -1,4 +1,6 @@
 # Put this script in /etc/profile.d/ to apply to all users
+# D=/etc/profile.d/ F=bash_persistent_history.sh bash -c '[[ -f "$D$F" ]] && echo "Oops, $D$F exists" || wget "https://raw.githubusercontent.com/aleksashka/scripts/master/bash/$F" -O "$D$F"'
+
 # Or add it to your .bashrc to apply to your user
 
 # https://github.com/eliben/code-for-blog/blob/master/2016/persistent-history/add-persistent-history.sh
